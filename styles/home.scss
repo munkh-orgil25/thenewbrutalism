@@ -1,0 +1,109 @@
+@import './hover-title.scss';
+
+.centered {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .focused-container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include media('<=tablet') {
+      max-width: 70%;
+    }
+  }
+}
+
+.scroll-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  cursor: grab;
+  cursor: -webkit-grab;
+  .box {
+    transition: transform 0.05s;
+    padding: 5em;
+    overflow: auto;
+    position: absolute;
+    width: 180em;
+    height: 135em;
+    display: grid;
+    grid-template-columns: repeat(60, 1fr);
+    grid-template-rows: repeat(45, 1fr);
+
+    @include media('<=1024px') {
+      width: 115em;
+      height: 86em;
+    }
+
+    .project-container {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+
+        max-width: 100%;
+        height: auto;
+        opacity: 0.45;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    [data-id] {
+      @include append-attr('be1') {
+        grid-area: 4 / 4 / span 7 / span 11;
+      }
+      @include append-attr('rm1') {
+        grid-area: 3 / 32 / span 9 / span 13;
+      }
+      @include append-attr('tp1') {
+        grid-area: 13 / 17 / span 8 / span 11;
+      }
+      @include append-attr('bch') {
+        grid-area: 21 / 6 / span 10 / span 7;
+      }
+      @include append-attr('cr1') {
+        grid-area: 18 / 33 / span 9 / span 13;
+      }
+      @include append-attr('h67') {
+        grid-area: 36 / 3 / span 8 / span 12;
+      }
+      @include append-attr('bccb') {
+        grid-area: 30 / 18 / span 6 / span 11;
+      }
+      @include append-attr('pss') {
+        grid-area: 34 / 32 / span 11 / span 11;
+      }
+      @include append-attr('tt1') {
+        grid-area: 2 / 52 / span 11 / span 8;
+      }
+      @include append-attr('gl1') {
+        grid-area: 16 / 50 / span 13 / span 9;
+      }
+      @include append-attr('are') {
+        grid-area: 33 / 48 / span 7 / span 10;
+      }
+    }
+  }
+}
